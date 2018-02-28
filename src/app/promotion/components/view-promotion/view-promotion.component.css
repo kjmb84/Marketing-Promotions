@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
+@import url("https://fonts.googleapis.com/css?family=Cabin");
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+@import url("https://fonts.googleapis.com/css?family=Pathway+Gothic+One");
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.promotion-title-container {
+    color: #2C4F81;
+    line-height: 30px;
+}
+
+.promotion-physical-locations-container {
+    margin-bottom: 10px;
+    color: #3D6DB2;
+    font-weight: bold;
+}
+
+.promotion-description-container {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.blue {
+    color: #2C4F81;
+}

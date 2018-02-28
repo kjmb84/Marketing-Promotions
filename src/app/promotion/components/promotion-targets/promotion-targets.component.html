@@ -1,0 +1,14 @@
+<h3><label for="promotion-targets-search-box">Promotion Targets:</label></h3>
+<div class="promotion-targets-container">
+  <div class="promotion-targets-search">
+    <input #promotionTargetSearch (keyup)="searchPromotionTargets(promotionTargetSearch.value)"
+           autocomplete="off" id="promotion-targets-search-box" type="text" placeholder="Start typing">
+  </div>
+  <div class="filtered-promotion-targets" *ngFor="let promotionTarget of filteredPromotionTargets | async">
+    <input type="checkbox" class="form-control" id="promotion-targets-{{promotionTarget.id}}"
+           (change)="setPromotionTarget(promotionTarget)" [checked]="inPromotionTargets(promotionTarget)">
+    <label for="promotion-targets-{{promotionTarget.id}}" class="button-label">
+      {{promotionTarget.name}}<ng-container *ngIf="promotionTarget.group"> - {{promotionTarget.group.name}}</ng-container>
+    </label>
+  </div>
+</div>

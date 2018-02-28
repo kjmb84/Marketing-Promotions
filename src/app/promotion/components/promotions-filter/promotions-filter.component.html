@@ -1,0 +1,9 @@
+<div class="filters">
+  <div class="locations-container">
+    <div *ngFor="let location of locations" class="location-container">
+      <input type="radio" id="location-{{location.short_name}}" value="{{location.id}}" name="location"
+             (click)="setLocation(location)" [checked]="inFilterLocations(location)">
+      <label class="button-label" for="location-{{location.short_name}}">{{location.short_name | uppercase}}</label>
+    </div>
+  </div>
+</div>

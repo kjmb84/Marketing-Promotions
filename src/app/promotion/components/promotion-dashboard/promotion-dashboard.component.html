@@ -1,0 +1,65 @@
+<app-navigation></app-navigation>
+
+<div class="header">
+    <h1 class="promotion-headline"><span class="promotion-classifier">Student</span> Promotions</h1>
+</div>
+<!-- todo Replace temporary promotion tiles with current promotions -->
+<div class="promotion-dashboard-container">
+    <div *ngFor="let promotion of promotions  | async | studentPromotions:promotions">
+        <div class="single-promotion-container">
+            <div class="promotion-image">
+                <!--this would normally have the url for the image-->
+                <img *ngIf="promotion.promotion_images && promotion.promotion_images.length > 0" src="/" />
+            </div>
+            <div class="promotion-details-container">
+                <h2 class="promotion-title">{{ promotion.title }}
+                    <i routerLink="/promotions/{{promotion.id}}/update" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </h2>
+                <span *ngIf="promotion.promotion_times && promotion.promotion_times.length > 0"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ promotion.promotion_times[0].start_date | date }}</span>
+                <span *ngIf="promotion.promotion_times && promotion.promotion_times.length > 0"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{ promotion.promotion_times[0].end_date | date }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="clear: both;"></div>
+<div class="header">
+    <h1 class="promotion-headline"><span class="promotion-classifier">Market Rate</span> Promotions</h1>
+</div>
+
+<div class="promotion-dashboard-container">
+    <div *ngFor="let promotion of promotions | async | marketRatePromotions:promotions">
+        <div class="single-promotion-container">
+            <div class="promotion-image">
+                <!--this would normally have the url for the image-->
+                <img *ngIf="promotion.promotion_images && promotion.promotion_images.length > 0" src="/" />
+            </div>
+            <div class="promotion-details-container">
+                <h2 class="promotion-title">{{ promotion.title }}
+                    <i routerLink="/promotions/{{promotion.id}}/update" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </h2>
+                <span *ngIf="promotion.promotion_times && promotion.promotion_times.length > 0"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ promotion.promotion_times[0].start_date | date }}</span>
+                <span *ngIf="promotion.promotion_times && promotion.promotion_times.length > 0"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{ promotion.promotion_times[0].end_date | date }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="promotion-dashboard-container">
+    <div *ngFor="let promotion of promotions | async">
+        <div class="single-promotion-container">
+            <div class="promotion-image">
+                <!--this would normally have the url for the image-->
+                <img *ngIf="promotion.promotion_images && promotion.promotion_images.length > 0" src="/" />
+            </div>
+            <div class="promotion-details-container">
+                <h2 class="promotion-title">{{ promotion.title }}
+                    <i routerLink="/promotions/{{promotion.id}}/update" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </h2>
+                <span *ngIf="promotion.promotion_times && promotion.promotion_times.length > 0"><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ promotion.promotion_times[0].start_date | date }}</span>
+                <span *ngIf="promotion.promotion_times && promotion.promotion_times.length > 0"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> {{ promotion.promotion_times[0].end_date | date }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear: both;"></div>
+

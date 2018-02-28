@@ -1,0 +1,108 @@
+<h3>Promotion Types:</h3>
+<div class="promotion-types-container">
+  <div class="promotion-type-container" *ngFor="let promotionType of promotionTypeList">
+    <div class="promotion-type-wrapper">
+      <div class="promotion-type">
+        <input type="checkbox" name="promotion-type-{{promotionType.id}}" id="promotion-type-{{promotionType.id}}"
+               (change)="setPromotionType(promotionType)" [checked]="inPromotionTypes(promotionType)">
+        <label for="promotion-type-{{promotionType.id}}" class="button-label">
+          {{promotionType.display_name}}
+        </label>
+        <span (click)="addPromotionTypeInfo(getExistingPromotionType(promotionType))" class="add-info"
+              *ngIf="inPromotionTypes(promotionType)">
+            <i class="fa fa-plus-square-o fa-lg" aria-hidden="true"></i>
+        </span>
+      </div>
+      <div class="promotion-type-info">
+        <ng-container *ngFor="let promotionTypeInfo of getExistingPromotionType(promotionType).promotion_type_info; let last = last; let index = index">
+            <hr>
+            <div class="promotion-type-info-tab">
+                <div class="test">
+                    <input id="promotion-type-info-tab-{{index}}" type="checkbox" name="tabs">
+                    <label class="button-label" (click)="toggleTab(promotionType.name, index)" for="promotion-type-info-tab-{{index}}">
+                        {{promotionTypeInfo.name}}
+                        <i id="{{promotionType.name}}-arrow-{{index}}" class="fa fa-angle-down arrow"></i>
+                    </label>
+                    <span (click)="removePromotionTypeInfo(promotionTypeInfo, getExistingPromotionType(promotionType))" class="remove-info">
+                        <i class="fa fa-minus-square-o fa-lg" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <div class="promotion-type-info-tab-content" id="{{promotionType.name}}-tab-content-{{index}}">
+                    <div class="name">
+                        <label for="promotion-name-{{promotionTypeInfo.id}}">Name:</label>
+                        <input type="text" [(ngModel)]="promotionTypeInfo.name"
+                               name="promotion-name-{{promotionTypeInfo.id}}" id="promotion-name-{{promotionTypeInfo.id}}">
+                    </div>
+                    <div class="perceived-value">
+                        <label for="actual-value-{{promotionTypeInfo.id}}">Actual Value:</label>
+                        <input type="number" [(ngModel)]="promotionTypeInfo.actual_value"
+                               name="actual-value-{{promotionTypeInfo.id}}" id="actual-value-{{promotionTypeInfo.id}}">
+                    </div>
+                    <div class="actual-value">
+                        <label for="perceived-value-{{promotionTypeInfo.id}}">Perceived Value:</label>
+                        <input type="number" [(ngModel)]="promotionTypeInfo.perceived_value"
+                               name="perceived-value-{{promotionTypeInfo.id}}" id="perceived-value-{{promotionTypeInfo.id}}">
+                    </div>
+                    <div class="completed-on">
+                        <label for="promotion-type-completed-{{promotionTypeInfo.id}}">Completed:</label>
+                        <input type="datetime-local" class="short-date"
+                               id="promotion-type-completed-{{promotionTypeInfo.id}}" name="promotion-type-completed-{{promotionTypeInfo.id}}"
+                               (ngModelChange)="setCompletedOn(promotionTypeInfo)" [ngModel]="promotionTypeInfo.completed_datetime | date:'yyyy-MM-ddTHH:mm'">
+                    </div>
+                    <div class="note">
+                        <label for="promotion-note-{{promotionTypeInfo.id}}">Note:</label>
+                        <textarea id="promotion-note-{{promotionTypeInfo.id}}" [(ngModel)]="promotionTypeInfo.note"
+                                  class="promotion-note" name="promotion-note-{{promotionTypeInfo.id}}"></textarea>
+                    </div>
+                    <div class="media">
+                        <label for="promotion-media-{{promotionTypeInfo.id}}">Media:</label>
+                        <input type="text" [(ngModel)]="promotionTypeInfo.media" id="promotion-media-{{promotionTypeInfo.id}}"
+                               name="promotion-media-{{promotionTypeInfo.id}}" class="promotion-media">
+                    </div>
+                    <div class="amount-set">
+                        <label for="promotion-amount-sent-{{promotionTypeInfo.id}}">Amount Set:</label>
+                        <input type="number" [(ngModel)]="promotionTypeInfo.amount_sent" id="promotion-amount-sent-{{promotionTypeInfo.id}}"
+                               name="promotion-amount-sent-{{promotionTypeInfo.id}}" class="promotion-">
+                    </div>
+                    <div class="hyperlink">
+                        <label for="promotion-hyperlink-{{promotionTypeInfo.id}}">Link:</label>
+                        <input type="text" [(ngModel)]="promotionTypeInfo.hyperlink" id="promotion-hyperlink-{{promotionTypeInfo.id}}"
+                               name="promotion-hyperlink-{{promotionTypeInfo.id}}" class="promotion-hyperlink">
+                    </div>
+                    <div class="open-percentage">
+                        <label for="promotion-open-percentage-{{promotionTypeInfo.id}}">Open Percentage:</label>
+                        <input type="number" [(ngModel)]="promotionTypeInfo.open_percentage" id="promotion-open-percentage-{{promotionTypeInfo.id}}"
+                               name="promotion-open-percentage-{{promotionTypeInfo.id}}" class="promotion-open-percentage">
+                    </div>
+                    <div class="click-through-percentage">
+                        <label for="promotion-click-through-percentage-{{promotionTypeInfo.id}}">Click Through Percentage:</label>
+                        <input type="number" [(ngModel)]="promotionTypeInfo.click_through_percentage" id="promotion-click-through-percentage-{{promotionTypeInfo.id}}"
+                               name="promotion-click-through-percentage-{{promotionTypeInfo.id}}" class="promotion-click-through-percentage">
+                    </div>
+                    <div class="subject-line">
+                        <label for="promotion-subject-line-{{promotionTypeInfo.id}}">Subject Line:</label>
+                        <input type="text" [(ngModel)]="promotionTypeInfo.subject_line" id="promotion-subject-line-{{promotionTypeInfo.id}}"
+                               name="promotion-subject-line-{{promotionTypeInfo.id}}" class="promotion-subject-line">
+                    </div>
+                    <div class="total-expense">
+                        <label for="promotion-total-expense-{{promotionTypeInfo.id}}">Total Expense:</label>
+                        <input type="number" [(ngModel)]="promotionTypeInfo.total_expense" id="promotion-total-expense-{{promotionTypeInfo.id}}"
+                               name="promotion-total-expense-{{promotionTypeInfo.id}}" class="promotion-total-expense">
+                    </div>
+                    <div class="reference-phone-number">
+                        <label for="promotion-reference-phone-number-{{promotionTypeInfo.id}}">Reference Phone Number:</label>
+                        <input type="text" [(ngModel)]="promotionTypeInfo.reference_phone_number" id="promotion-reference-phone-number-{{promotionTypeInfo.id}}"
+                               name="promotion-reference-phone-number-{{promotionTypeInfo.id}}" class="promotion-reference-phone-number">
+                    </div>
+                    <div class="associated-ipad-event-name">
+                        <label for="promotion-associated-ipad-event-name-{{promotionTypeInfo.id}}">iPad Event:</label>
+                        <input type="text" [(ngModel)]="promotionTypeInfo.associated_ipad_event_name" id="promotion-associated-ipad-event-name-{{promotionTypeInfo.id}}"
+                               name="promotion-associated-ipad-event-name-{{promotionTypeInfo.id}}" class="promotion-associated-ipad-event-name">
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

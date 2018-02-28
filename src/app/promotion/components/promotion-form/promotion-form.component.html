@@ -1,0 +1,51 @@
+<form (ngSubmit)="submitPromotion(promotion)" #promotionForm="ngForm" name="promotion-form">
+  <div class="title-container">
+    <h3><label for="title">Title: </label></h3>
+    <input type="text" class="form-control" id="title" required [(ngModel)]="promotion.title" name="title">
+  </div>
+  <br>
+  <div class="description-container">
+    <h3><label for="description"> Description: </label></h3>
+    <textarea type="text" id="description" required [(ngModel)]="promotion.description" name="description"></textarea>
+  </div>
+  <br>
+  <app-promotion-dates [(promotionTimes)]="promotion.promotion_times"></app-promotion-dates>
+  <br>
+  <div class="promotion-leasing-year-container">
+    <h3>Leasing Year:</h3>
+    <select [(ngModel)]="promotion.leasing_year" name="leasing-year">
+      <option value="2017-2018">2017-2018</option>
+      <option value="2018-2019">2018-2019</option>
+    </select>
+  </div>
+  <br>
+  <app-promotion-types-input [(promotionTypes)]="promotion.promotion_types"></app-promotion-types-input>
+  <br>
+  <app-promotion-groups-input [(promotionGroups)]="promotion.promotion_groups"></app-promotion-groups-input>
+  <br>
+  <app-promotion-targets [(promotionTargets)]="promotion.promotion_targets"></app-promotion-targets>
+  <br>
+  <app-location-input [(locations)]="promotion.promotion_properties"></app-location-input>
+  <br>
+  <app-promotion-location-input [(promotionLocations)]="promotion.promotion_locations"></app-promotion-location-input>
+  <br>
+  <div class="images-container">
+  <label>Promotion Images: </label>
+    <input type="file" ng2FileSelect [uploader]="uploader"/>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<div>
+  <hr>
+  <div class="promotion-preview">
+    <h2>Promotion Preview</h2>
+  </div>
+  <app-view-promotion [promotion]="promotion"></app-view-promotion>
+</div>
+<div class="always-visible">
+  <hr>
+  <div class="promotion-preview">
+    <h2>Promotion Preview</h2>
+  </div>
+  <app-view-promotion [promotion]="promotion"></app-view-promotion>
+</div>

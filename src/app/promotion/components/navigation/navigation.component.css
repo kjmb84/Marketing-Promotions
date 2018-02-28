@@ -1,0 +1,13 @@
+.navigation {
+    float: right;
+    font-size: 34px;
+    margin-right: 1%;
+}
+
+.navigation i {
+    color: #2C4F81;
+}
+
+.navigation i:hover {
+    color: #3D6DB2;
+}

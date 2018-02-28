@@ -1,0 +1,8 @@
+<h3>Promotion Groups:</h3>
+<div class="promotion-groups-container">
+  <div class="promotion-group" *ngFor="let group of groups">
+    <input type="checkbox" id="promotion-group-{{group.id}}" name="promotion-groups[]"
+           [checked]="inGroups(group)" (change)="setGroup(group)">
+    <label for="promotion-group-{{group.id}}" class="button-label">{{group.name}}</label>
+  </div>
+</div>

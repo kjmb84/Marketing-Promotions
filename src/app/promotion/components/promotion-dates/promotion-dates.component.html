@@ -1,0 +1,16 @@
+<div class="dates-container">
+  <h3>Dates Running:</h3>
+  <div class="date-pair-container" *ngFor="let promotionTime of promotionTimes; let index = index">
+    <div class="date-container">
+      <label for="promotion-start-{{promotionTime.id}}">Begins</label>
+      <input type="datetime-local" [ngModel]="promotionTime.start_date | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="setStartDate(promotionTime)" id="promotion-start-{{promotionTime.id}}" name="promotion-start-{{promotionTime.id}}">
+    </div>
+    <div class="date-container">
+      <label for="promotion-end-{{promotionTime.id}}">Expires</label>
+      <input type="datetime-local" [ngModel]="promotionTime.end_date | date:'yyyy-MM-ddTHH:mm'" (ngModelChange)="setEndDate(promotionTime)" id="promotion-end-{{promotionTime.id}}" name="promotion-end-{{promotionTime.id}}">
+    </div>
+    <span><i class="fa fa-calendar-minus-o" aria-hidden="true" (click)="removeDates(promotionTime)"></i></span>
+    <div class="error" *ngIf="!promotionTime.start_date && promotionTime.end_date"> - You must pick a start date if you have an end date!</div>
+  </div>
+  <span><i class="fa fa-calendar-plus-o" aria-hidden="true" (click)="addDates()"></i></span>
+</div>

@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Pathway+Gothic+One");
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+
+input[type=text], input[type=number] {
+    width: 99%;
+    height: 17px;
+    border-radius: 5px;
+    border:1px solid #cccccc
+}
+
+input[type=date] {
+    font-family: 'Oswald', serif;
+    width: 150px;
+    border-radius: 5px;
+    border:1px solid #cccccc
+}
+
+textarea {
+    width: 99% ;
+    height: 51px;
+    border-radius: 5px;
+    border:1px solid #cccccc
+}
+
+label {
+    width: 100%;
+}
+
+h3 {
+    margin: 0;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked + label {
+    background-color: rgb(205,205,255);
+    border: black 1px;
+}
+
+.always-visible {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    background-color: #eeeeee;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.button-label {
+    background-color: rgb(225,225,255);
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+
+.promotion-leasing-year-container {
+    /*width: 49%;*/
+    /*display: inline-block;*/
+}
+
+.header {
+    text-align: center;
+}
+
+.promotion-preview {
+    -ms-text-align-last: right;
+    text-align: center;
+}
+
+.ng-valid[required], .ng-valid.required {
+    border-left: 5px solid #42A948;
+    border-right: 5px solid #42A948;
+}
+
+.ng-invalid:not(form):not(.ng-pristine) {
+    border-left: 5px solid rgba(255, 143, 119, 0.95);
+    border-right: 5px solid rgba(255, 143, 119, 0.95);
+}

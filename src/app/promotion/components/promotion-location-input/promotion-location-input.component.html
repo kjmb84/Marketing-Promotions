@@ -1,0 +1,12 @@
+<h3><label for="promotion-locations-search-box">Promotion Location:</label></h3>
+<div class="promotion-locations-container">
+  <div class="promotion-locations-search">
+    <input #promotionLocationSearch (keyup)="searchPromotionLocations(promotionLocationSearch.value)"
+           autocomplete="off" id="promotion-locations-search-box" type="text" placeholder="Start typing">
+  </div>
+  <div class="filtered-promotion-locations" *ngFor="let promotionLocation of filteredPromotionLocations | async">
+    <input type="checkbox" class="form-control" id="promotion-locations-{{promotionLocation.id}}"
+           (change)="setPromotionLocation(promotionLocation)" [checked]="inPromotionLocations(promotionLocation)">
+    <label for="promotion-locations-{{promotionLocation.id}}" class="button-label">{{promotionLocation.name}}</label>
+  </div>
+</div>

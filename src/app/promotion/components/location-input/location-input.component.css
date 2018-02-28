@@ -1,0 +1,48 @@
+.locations-container {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /*width: 50%;*/
+    justify-content: space-between;
+}
+
+.location {
+    display:flex;
+    flex-basis: 33%;
+    justify-content: flex-start;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    /*float: left;*/
+}
+
+label {
+    width: 100%;
+}
+
+h3 {
+    margin: 0;
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+input[type=checkbox]:checked + label, input[type=radio]:checked + label {
+    background-color: #8DCB00;
+    border: black 1px;
+}
+
+.button-label {
+    background-color: #2C4F81;
+    color: white;
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+
+.button-label:hover {
+    background-color: #3D6DB2;
+    cursor: pointer;
+}

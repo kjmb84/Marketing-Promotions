@@ -1,0 +1,18 @@
+<form class="create-promotion-location-container" (submit)="submitPromotionLocation()">
+    <h1>Create a New Promotion Location</h1>
+    <h3>Name:</h3>
+    <input type="text" placeholder="Name" [(ngModel)]="promotionLocation.name" name="location-name">
+    <h3>Street Address 1:</h3>
+    <input type="text" placeholder="Address" [(ngModel)]="promotionLocation.street_address_1" name="location-address-1">
+    <h3>Street Address 2:</h3>
+    <input type="text" placeholder="Address" [(ngModel)]="promotionLocation.street_address_2" name="location-address-2">
+    <h3>City</h3>
+    <input type="text" placeholder="City" [(ngModel)]="promotionLocation.city" name="location-city">
+    <h3>State</h3>
+    <input type="text" placeholder="State" [(ngModel)]="promotionLocation.state" name="location-state">
+    <h3>Zip Code</h3>
+    <input type="text" placeholder="Zip" [(ngModel)]="promotionLocation.zip" name="location-zip">
+    <h3>Country</h3>
+    <input type="text" placeholder="Country" [(ngModel)]="promotionLocation.country" name="location-country">
+    <button type="submit">Submit</button>
+</form>

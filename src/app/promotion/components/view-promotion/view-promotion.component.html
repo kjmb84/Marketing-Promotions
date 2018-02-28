@@ -1,0 +1,49 @@
+<ng-container *ngIf="promotion">
+    <div class="promotion-title-container">
+        <h2>{{promotion.title}}</h2>
+    </div>
+    <div>
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <span class="promotion-dates-container">
+            <ng-container *ngFor="let promotionTime of promotion.promotion_times; let last = last; let first = first">
+                {{promotionTime.start_date | date:"MM/dd/yy"}} - {{promotionTime.end_date | date:"MM/dd/yy"}}<ng-container *ngIf="!last">,&nbsp;</ng-container>
+            </ng-container>
+        </span>
+        <br>
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <span class="promotion-physical-locations-container">
+            <ng-container *ngFor="let promotionLocation of promotion.promotion_locations; let last = last">
+                <i>{{promotionLocation.name}}<ng-container *ngIf="!last">,&nbsp;</ng-container></i>
+            </ng-container>
+        </span>
+    </div>
+    <div class="promotion-description-container">
+        {{promotion.description}}
+    </div>
+    <hr>
+</ng-container>
+<!---------------------------------------------------------->
+
+<!--<ng-container *ngIf="promotion">-->
+    <!--<div class="promotion-title-container">-->
+        <!--<h2>{{promotion.title}}</h2>-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<i class="fa fa-calendar" aria-hidden="true"></i>-->
+        <!--<span class="promotion-dates-container">-->
+            <!--<ng-container *ngFor="let promotionTime of promotion.promotion_times; let last = last; let first = first">-->
+                <!--{{promotionTime.start_date | date:"MM/dd/yy"}} - {{promotionTime.end_date | date:"MM/dd/yy"}}<ng-container *ngIf="!last">,&nbsp;</ng-container>-->
+            <!--</ng-container>-->
+        <!--</span>-->
+        <!--<hr>-->
+        <!--<i class="fa fa-map-marker" aria-hidden="true"></i>-->
+        <!--<span class="promotion-physical-locations-container">-->
+            <!--<ng-container *ngFor="let promotionLocation of promotion.promotion_locations; let last = last">-->
+                <!--<i>{{promotionLocation.name}}<ng-container *ngIf="!last">,&nbsp;</ng-container></i>-->
+            <!--</ng-container>-->
+        <!--</span>-->
+    <!--</div>-->
+    <!--<div class="promotion-description-container">-->
+        <!--{{promotion.description}}-->
+    <!--</div>-->
+<!--</ng-container>-->

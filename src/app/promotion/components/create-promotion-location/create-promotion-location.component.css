@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald");
+
+.create-promotion-location-container {
+    font-family: Oswald, serif;
+}
+
+input[type=text], input[type=number] {
+    width: 99%;
+    height: 17px;
+    border-radius: 5px;
+    border:1px solid #cccccc;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 99% ;
+    height: 51px;
+    border-radius: 5px;
+    border:1px solid #cccccc;
+}
+
+label {
+    width: 100%;
+}
+
+h3 {
+    margin: 0;
+}

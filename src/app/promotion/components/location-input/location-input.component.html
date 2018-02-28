@@ -1,0 +1,8 @@
+<h3>Locations:</h3>
+<div class="locations-container">
+  <div *ngFor="let location of locationList" class="location">
+    <input type="checkbox" class="form-control" id="location-{{location.id}}" name="locations[]"
+           (change)="setLocation(location)" [checked]="inLocations(location)">
+    <label for="location-{{location.id}}" class="button-label">{{location.public_name}} - {{location.short_name}}</label>
+  </div>
+</div>

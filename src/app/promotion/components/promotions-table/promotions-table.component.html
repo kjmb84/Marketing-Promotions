@@ -1,0 +1,28 @@
+<router-outlet></router-outlet>
+<div class="container">
+    <div class="promotions-container">
+        <div id="lease-promotions">
+            <h1 class="promotion-headline"><span class="promotion-classifier">New Lease</span> Current Promotions</h1>
+            <div class="single-promotion" *ngFor="let promotion of promotions | async | currentPromotions:promotions">
+                <app-view-promotion [promotion]="promotion"></app-view-promotion>
+            </div>
+        </div>
+    </div>
+    <div class="promotions-container">
+        <h1 class="promotion-headline"><span class="promotion-classifier">Renewal</span> Current Promotions</h1>
+        <div id="renewal-promotions">
+            <div class="single-promotion" *ngFor="let promotion of promotions | async">
+                <app-view-promotion [promotion]="promotion"></app-view-promotion>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="promotions-container">
+        <h1 class="promotion-headline"><span class="promotion-classifier">Upcoming</span> Promotions</h1>
+        <div id="upcoming-promotions">
+            <div class="single-promotion" *ngFor="let promotion of promotions | async | futurePromotions:promotions">
+                <app-view-promotion [promotion]="promotion"></app-view-promotion>
+            </div>
+         </div>
+    </div>
+</div>
